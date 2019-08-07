@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     // default item view
     let pinCodeInputView: PinCodeInputView<ItemView> = .init(
-        digit: 6,
-        itemSpacing: 8,
+        digit: 4,
+        itemSpacing: 18,
         itemFactory: {
             return ItemView()
     },
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         titleLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 56, height: 60)
         titleLabel.center = CGPoint(x: view.center.x, y: view.center.y - 94)
 
-        pinCodeInputView.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 56, height: 80)
+        pinCodeInputView.frame = CGRect(x: 0, y: 0, width: 250, height: 62)
         pinCodeInputView.center = view.center
         pinCodeInputView.set(changeTextHandler: { text in
             print(text)
@@ -76,11 +76,11 @@ class ViewController: UIViewController {
             appearance: .init(
                 itemSize: CGSize(width: 44, height: 68),
                 font: .systemFont(ofSize: 28, weight: .bold),
-                textColor: .white,
-                backgroundColor: UIColor.white.withAlphaComponent(0.3),
+                textColor: .black,
+                backgroundColor: UIColor.white,
                 cursorColor: UIColor(red: 69/255, green: 108/255, blue: 1, alpha: 1),
                 cornerRadius: 8,
-				borderColor: UIColor.red
+				borderColor: UIColor.lightGray
             )
         )
         
@@ -103,6 +103,7 @@ class ViewController: UIViewController {
         print("color:", UIPasteboard.general.colors ?? "")
         print("image:", UIPasteboard.general.images ?? "")
         
+        UIPasteboard.general.strings = ["****"]
         if let string = UIPasteboard.general.string {
             pinCodeInputView.set(text: string)
         }

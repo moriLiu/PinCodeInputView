@@ -48,7 +48,6 @@ public class ItemView: UIView, ItemType {
         
         label.textAlignment = .center
         label.isUserInteractionEnabled = false
-        
         cursor.isHidden = true
         
         UIView.animateKeyframes(
